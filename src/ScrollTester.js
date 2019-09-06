@@ -110,7 +110,7 @@ class ScrollTester extends Component {
                             this.setState({
                                 disableScroll: false
                             });
-                        }, 666);
+                        }, 444);
                         // log out the movements
                         console.log(`d: ${this.state.direction} c: ${this.state.panelCurrent} > n: ${this.state.panelNext}`);
                     }
