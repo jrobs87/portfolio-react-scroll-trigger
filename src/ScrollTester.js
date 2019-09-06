@@ -128,9 +128,9 @@ class ScrollTester extends Component {
 
     render() {
         return <div style={style} onScroll={this.handleScroll} onWheel={this.handleScroll}>
-            <h6>JOHN ROBERTSON</h6>
+            <p>JOHN ROBERTSON</p>
             <br />
-            <Panel view={this.state.panels[this.state.panelCurrent]} keys={this.state.panelCurrent} />
+            <Panel view={this.state.panels[this.state.panelCurrent]} state={this.state} keys={this.state.panelCurrent} />
         </div>
     }
 }

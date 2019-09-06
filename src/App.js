@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <Fade exit={true}>
-        <div style={{  position: 'relative', top: '18em', textAlign: 'center', background: 'none', margin: 'auto'}}>
+        <div style={{  position: 'relative', top: '20em', textAlign: 'center', background: 'none', margin: 'auto'}}>
         LOADER PAGE
         <Link to='/scroll'><Button variant="primary">Enter</Button></Link>
         </div>
