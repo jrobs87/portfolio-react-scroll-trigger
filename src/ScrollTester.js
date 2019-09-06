@@ -21,19 +21,43 @@ class ScrollTester extends Component {
                     title: 'landing'
                 },
                 {
-                    title: 'Bork',
+                    title: 'BORK',
                     blurb: 'A fun little project with a big heart.  Swipe-based dog adoption app modeled on Tinder features.',
+                    year: '2019 June',
+                    client: 'Georgia Tech - Conceptual Demo'
+                },
+                {
+                    title: 'IMMERSIO',
+                    blurb: 'A real-time language translation messenger app.  Cheers!',
+                    year: '2019 August',
+                    client: 'Georgia Tech - Conceptual Demo'
+                },
+                {
+                    title: 'Shrug',
+                    blurb: 'Date planning app for the laziest of us.  I use it all the time.',
                     year: 2019,
                     client: 'Georgia Tech'
                 },
                 {
-                    title: 'Immersio',
-                    blurb: 'A real-time langauge translation messenger app.',
+                    title: 'Atlanta CFO Forum',
+                    blurb: "Job Board and Event Planning site for Atlanta's top exectuive talent.",
                     year: 2019,
-                    client: 'Georgia Tech'
+                    client: 'The Atlanta CFO Forum'
+                },
+                {
+                    title: 'Waycaster Allred',
+                    blurb: "Job Board and Event Planning site for Atlanta's top exectuive talent.",
+                    year: 2019,
+                    client: 'Waycaster and Allred, Attorneys at Law'
+                },
+                {
+                    title: 'Popa Duck Lodge',
+                    blurb: "Job Board and Event Planning site for Atlanta's top exectuive talent.",
+                    year: 2019,
+                    client: 'Waycaster and Allred, Attorneys at Law'
                 }
             ],
-            scrollDirection: '',
+            scrollDirection: 'down',
             panelNext: '',
             disableScroll: false
         };
@@ -110,7 +134,7 @@ class ScrollTester extends Component {
                             this.setState({
                                 disableScroll: false
                             });
-                        }, 444);
+                        }, 666);
                         // log out the movements
                         console.log(`d: ${this.state.direction} c: ${this.state.panelCurrent} > n: ${this.state.panelNext}`);
                     }
@@ -128,8 +152,8 @@ class ScrollTester extends Component {
 
     render() {
         return <div style={style} onScroll={this.handleScroll} onWheel={this.handleScroll}>
-            <p>JOHN ROBERTSON</p>
-            <br />
+            {/* <p>JOHN ROBERTSON</p>
+            <br /> */}
             <Panel view={this.state.panels[this.state.panelCurrent]} state={this.state} keys={this.state.panelCurrent} />
         </div>
     }

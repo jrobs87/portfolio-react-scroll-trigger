@@ -18,9 +18,9 @@ function Routing() {
 
             <Fade>
                 <div style={{ position: 'fixed', zIndex: 2000, top: 0, right: '3em' }}>
-                    <Link to='/'> <Button variant="secondary">Loader</Button></Link>
-                    <Link to='/scroll'><Button variant="secondary">Scroller</Button></Link>
-                    <Link to='/rtg'><Button variant="secondary">Sandbox</Button></Link>
+                    <Link to='/'> <Button variant="link">Loader</Button></Link>
+                    <Link to='/scroll'><Button variant="link">Scroller</Button></Link>
+                    <Link to='/rtg'><Button variant="link">Sandbox</Button></Link>
                 </div>
             </Fade>
 
