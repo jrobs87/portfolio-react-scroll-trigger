@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Fade from 'react-reveal';
 import Panel from './panel';
 
 const style = {
@@ -25,15 +24,18 @@ class ScrollTester extends Component {
                     title: 'Bork',
                     blurb: 'A fun little project with a big heart.  Swipe-based dog adoption app modeled on Tinder features.',
                     year: 2019,
-                    client: ''
+                    client: 'Georgia Tech'
                 },
                 {
                     title: 'Immersio',
-                    blurb: 'A real-time langauge translation messenger app.'
+                    blurb: 'A real-time langauge translation messenger app.',
+                    year: 2019,
+                    client: 'Georgia Tech'
                 }
             ],
             scrollDirection: '',
-            panelNext: ''
+            panelNext: '',
+            disableScroll: false
         };
 
         // initial timeout
@@ -46,14 +48,14 @@ class ScrollTester extends Component {
     handleScroll(e) {
         // deltaY helps prevent errant scrolling by firing only if scroll Y exceeds a threshold - critical!!!
         // determines scroll sensitivity
-        if (e.deltaY >= 2 || e.deltaY <= -2) {
+        if (e.deltaY >= 0 || e.deltaY <= 0) {
             // check for direction
-            if (e.nativeEvent.wheelDelta > 0) {                
+            if (e.nativeEvent.wheelDelta > 0) {
                 this.setState({
                     direction: 'up'
                 })
             } else {
-                if (e.nativeEvent.wheelDelta < 0)                    
+                if (e.nativeEvent.wheelDelta < 0)
                     this.setState({
                         direction: 'down'
                     })
@@ -70,20 +72,18 @@ class ScrollTester extends Component {
                 scrollStatus: 'end'
             })
 
-            // handle view change here!!!
+        
+
+            // handle scroll render!!!
+            if (this.state.scrollStatus === 'end') {
+                    // handle view change here!!!
             let current = this.state.panelCurrent;
             const length = this.state.panels.length;
             let direction = this.state.direction;
             let panelNext = this.state.panelNext;
             // console.log(length);
-
-            // handle scroll render!!!
-            if (this.state.scrollStatus === 'end') {
-                // console.log('end');
-
                 // set next panel
                 if (direction === 'down') {
-                    // console.log(`next panel is ${this.state.panelCurrent + 1}`);
                     panelNext = this.state.panelCurrent + 1
                     this.setState({
                         panelNext: panelNext
@@ -97,17 +97,26 @@ class ScrollTester extends Component {
 
                 // check limits and renders new view
                 if (this.state.panelNext > length - 1 || this.state.panelNext < 0) {
-                    console.log('threshold reached!');
+                    console.log('Scroll threshold reached!');
                 } else {
-                    this.setState({
-                        panelCurrent: panelNext
-                    })
+                    if (this.state.disableScroll) {
+                        console.log('Prevented accidental scroll!');
+                    } else {
+                        this.setState({
+                            panelCurrent: panelNext,
+                            disableScroll: true
+                        });
+                        setTimeout(() => {
+                            this.setState({
+                                disableScroll: false
+                            });
+                        }, 666);
+                        // log out the movements
+                        console.log(`d: ${this.state.direction} c: ${this.state.panelCurrent} > n: ${this.state.panelNext}`);
+                    }
                 }
-
-                // log out the movements
-                console.log(`d: ${this.state.direction} c: ${this.state.panelCurrent} > n: ${this.state.panelNext}`);
             }
-        }, 44); // timeout after scroll end before executing view update (critical to catch scroll end)
+        }, 22); // timeout after scroll end before executing view update (critical to catch scroll end)
 
         // set the scrolling status while moving
         if (this.state.scrollStatus !== 'scrolling') {
@@ -119,7 +128,7 @@ class ScrollTester extends Component {
 
     render() {
         return <div style={style} onScroll={this.handleScroll} onWheel={this.handleScroll}>
-            <h1>JOHN ROBERTSON</h1>
+            <h6>JOHN ROBERTSON</h6>
             <br />
             <Panel view={this.state.panels[this.state.panelCurrent]} keys={this.state.panelCurrent} />
         </div>
