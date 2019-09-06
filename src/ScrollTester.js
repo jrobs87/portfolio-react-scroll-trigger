@@ -24,37 +24,48 @@ class ScrollTester extends Component {
                     title: 'BORK',
                     blurb: 'A fun little project with a big heart.  Swipe-based dog adoption app modeled on Tinder features.',
                     year: '2019 June',
-                    client: 'Georgia Tech - Conceptual Demo'
+                    client: 'Georgia Tech - Conceptual Demo',
+                    color: 'purple',
                 },
                 {
                     title: 'IMMERSIO',
                     blurb: 'A real-time language translation messenger app.  Cheers!',
                     year: '2019 August',
-                    client: 'Georgia Tech - Conceptual Demo'
+                    client: 'Georgia Tech - Conceptual Demo',
+                    color: 'blue'
                 },
                 {
                     title: 'Shrug',
                     blurb: 'Date planning app for the laziest of us.  I use it all the time.',
                     year: 2019,
-                    client: 'Georgia Tech'
+                    client: 'Georgia Tech',
+                    color: 'orangered'
                 },
                 {
                     title: 'Atlanta CFO Forum',
                     blurb: "Job Board and Event Planning site for Atlanta's top exectuive talent.",
                     year: 2019,
-                    client: 'The Atlanta CFO Forum'
+                    client: 'The Atlanta CFO Forum',
+                    color: 'navy'
                 },
                 {
                     title: 'Waycaster Allred',
                     blurb: "Job Board and Event Planning site for Atlanta's top exectuive talent.",
                     year: 2019,
-                    client: 'Waycaster and Allred, Attorneys at Law'
+                    client: 'Waycaster and Allred, Attorneys at Law',
+                    color: 'crimson'
                 },
                 {
                     title: 'Popa Duck Lodge',
                     blurb: "Job Board and Event Planning site for Atlanta's top exectuive talent.",
                     year: 2019,
-                    client: 'Waycaster and Allred, Attorneys at Law'
+                    client: 'Waycaster and Allred, Attorneys at Law',
+                    color: 'green'
+                },{
+                    title: 'Thank You',
+                    blurb: null,
+                    year: '',
+                    client: 'tiktaalikdesign@gmail.com'
                 }
             ],
             scrollDirection: 'down',
@@ -134,13 +145,13 @@ class ScrollTester extends Component {
                             this.setState({
                                 disableScroll: false
                             });
-                        }, 666);
+                        }, 444);
                         // log out the movements
                         console.log(`d: ${this.state.direction} c: ${this.state.panelCurrent} > n: ${this.state.panelNext}`);
                     }
                 }
             }
-        }, 22); // timeout after scroll end before executing view update (critical to catch scroll end)
+        }, 11); // timeout after scroll end before executing view update (critical to catch scroll end)
 
         // set the scrolling status while moving
         if (this.state.scrollStatus !== 'scrolling') {

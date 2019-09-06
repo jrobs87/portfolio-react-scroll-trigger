@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import Fade from 'react-reveal';
 import { Container, Col, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import img from './dude.jpg';
 
+
+const backgroundImage = `url(${img})`
 
 class Panel extends Component {
     render() {
         // console.log(this.props);
         if (this.props.keys === 0) {
             return (
-                <Fade>
-                    <div style={{ height: '100vh', width: '100%', background: 'none', position: 'fixed', top: 0, left: 0, padding: '7em' }}>
+                <Fade exit={true}>
+                    <div style={{ height: '100vh', width: '100%', backgroundImage: backgroundImage, backgroundSize: 'cover', color: 'white', position: 'fixed', top: 0, left: 0, padding: '7em' }}>
                         <Container fluid={true}>
                             <Row>
                                 <Col lg={9} md={6}>
@@ -36,8 +39,8 @@ class Panel extends Component {
                 <div>
 
 
-                    <Fade>
-                        <Container fluid={true} style={{ border: '1px solid grey', borderRadius: '0.33em', height: '90vh', padding: '6em' }}>
+                    <Fade exit={true}>
+                        <Container fluid={true} style={{ border: '1px solid grey', borderRadius: '0em', height: '90vh', padding: '6em' }}>
                             <Row style={{ paddingTop: '7em' }}>
                                 <Col lg={5}>
                                     <Fade top left duration={66} distance={'12px'} exit={true} key={this.props.keys}>
@@ -73,7 +76,7 @@ class Panel extends Component {
                             <h6>
                             <Fade>
                             <Link to='/rtg'>
-                            <Button variant="dark">CASE STUDY</Button>
+                            <Button variant="dark" style={{ border: 'none', background: this.props.view.color, borderRadius: 0}}>CASE STUDY</Button>
                             </Link>
                             </Fade>
                             </h6>
