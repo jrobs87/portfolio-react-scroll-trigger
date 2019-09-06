@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from 'react';
+import Fade from 'react-reveal';
+import disableScroll from 'disable-scroll'; // remove from modules!!
+
+class App extends Component {
+  render() {
+    return (
+      <Fade exit={true} unmountOnExit={true}>
+        <h1 style={{ position: 'relative', top: '8em', textAlign: 'center', background: 'red', margin: 'auto'}}>
+        THIS IS OUR LOADER PAGE
+        </h1>
+      </Fade>
+    )
+  }
 }
 
-export default App;
+export default App
